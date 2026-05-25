@@ -7,6 +7,16 @@ import path from "path";
 
 const turndownservice = new TurndownService();
 
+function removeCSSBlocks(text) {
+    text = text.replace(/[#.\w][\w\s\-,:.#\[\]="*()>~+^$|]*\{[^}]*\}/g, '');
+    text = text.replace(/@media[^{]*\{[^}]*\{[^}]*\}[^}]*\}/g, '');
+    text = text.replace(/^.*#block-[^\n]*$/gm, '');
+    text = text.replace(/(\s*@\s*\}\s*)+/g, '');
+    text = text.replace(/\s*@\s*$/gm, '');
+    text = text.replace(/\n{3,}/g, '\n\n').trim();
+    return text;
+}
+
 async function grabWOWIAnalysis() {
     const baseUrl = "https://www.worldofwordsinstitute.com";
     const url = `${baseUrl}/blog/category/Topic+Analyses`;
@@ -39,6 +49,8 @@ async function grabWOWIAnalysis() {
             content += markdown + "\n";
         }
         
+        content = removeCSSBlocks(content);
+
         const filePath = "output/" + crypto.randomUUID() + ".md";
         await writeFile(filePath, content, "utf8");
         console.log(`✅ Saved transcript to: ${filePath}\n`);
