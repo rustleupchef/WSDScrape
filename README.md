@@ -15,6 +15,7 @@ cd overload
 python3 main.py
 ```
 This will return the total token counts of all the files in the output section. If you believe this is too high add a limit to the total videos.
+For context, a unpaid claude conversation can handle roughly 200,000 to 500,000 tokens.
 
 To generate the INSTRUCTIONS.md file
 
