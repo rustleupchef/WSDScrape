@@ -1,0 +1,36 @@
+“The Words of Worlds Series”
+============================
+
+A blog dedicated to anything and everything related to the Worlds Schools circuit.
+
+#block-3595d59e06fff3433ddb { --stroke-style: none;--stroke-thickness: 6px; } #block-3595d59e06fff3433ddb .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-3595d59e06fff3433ddb { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-3595d59e06fff3433ddb { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-3595d59e06fff3433ddb { --tweak-text-block-blend : normal; } .fe-block-3595d59e06fff3433ddb { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-3595d59e06fff3433ddb { } } @media screen and (max-width: 767px) { #block-3595d59e06fff3433ddb .sqs-html-content { } } @media screen and (max-width: 767px) { }
+#### Categories
+
+#block-yui\_3\_17\_2\_1\_1694446669373\_2325 { --stroke-style: none;--stroke-thickness: 6px; } #block-yui\_3\_17\_2\_1\_1694446669373\_2325 .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_2325 { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_2325 { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_2325 { --tweak-text-block-blend : normal; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_2325 { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_2325 { } } @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_2325 .sqs-html-content { } } @media screen and (max-width: 767px) { }
+[Op-Eds](https://www.worldofwordsinstitute.com/blog/category/Op-Eds)
+
+#block-yui\_3\_17\_2\_1\_1694446669373\_4580 { --stroke-style: none;--stroke-thickness: 6px; } #block-yui\_3\_17\_2\_1\_1694446669373\_4580 .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_4580 { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_4580 { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_4580 { --tweak-text-block-blend : normal; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_4580 { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_4580 { } } @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_4580 .sqs-html-content { } } @media screen and (max-width: 767px) { }
+[Topic Analyses](https://www.worldofwordsinstitute.com/blog/category/Topic+Analyses)
+
+#block-46fd0506ffe757c3ff62 { --stroke-style: none;--stroke-thickness: 6px; } #block-46fd0506ffe757c3ff62 .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-46fd0506ffe757c3ff62 { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-46fd0506ffe757c3ff62 { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-46fd0506ffe757c3ff62 { --tweak-text-block-blend : normal; } .fe-block-46fd0506ffe757c3ff62 { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-46fd0506ffe757c3ff62 { } } @media screen and (max-width: 767px) { #block-46fd0506ffe757c3ff62 .sqs-html-content { } } @media screen and (max-width: 767px) { }
+[Tournament Results](https://www.worldofwordsinstitute.com/blog/category/Tournament+Results)
+
+#block-a8fb4d5974a5bad2c780 { --stroke-style: none;--stroke-thickness: 6px; } #block-a8fb4d5974a5bad2c780 .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-a8fb4d5974a5bad2c780 { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-a8fb4d5974a5bad2c780 { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-a8fb4d5974a5bad2c780 { --tweak-text-block-blend : normal; } .fe-block-a8fb4d5974a5bad2c780 { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-a8fb4d5974a5bad2c780 { } } @media screen and (max-width: 767px) { #block-a8fb4d5974a5bad2c780 .sqs-html-content { } } @media screen and (max-width: 767px) { }
+[WSD News](https://www.worldofwordsinstitute.com/blog/category/WSD+News)
+
+#block-yui\_3\_17\_2\_1\_1694446669373\_9823 { --stroke-style: none;--stroke-thickness: 6px; } #block-yui\_3\_17\_2\_1\_1694446669373\_9823 .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_9823 { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_9823 { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_9823 { --tweak-text-block-blend : normal; } .fe-block-yui\_3\_17\_2\_1\_1694446669373\_9823 { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_9823 { } } @media screen and (max-width: 767px) { #block-yui\_3\_17\_2\_1\_1694446669373\_9823 .sqs-html-content { } } @media screen and (max-width: 767px) { }
+#### Info
+
+[Contact](/contact-2)  
+[About](/about-us)  
+[Instagram](https://www.instagram.com/worldofwordsinstitute/?hl=en)
+
+#block-60bc0944511e9ccbc10d { --stroke-style: none;--stroke-thickness: 6px; } #block-60bc0944511e9ccbc10d .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-60bc0944511e9ccbc10d { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-60bc0944511e9ccbc10d { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-60bc0944511e9ccbc10d { --tweak-text-block-blend : normal; } .fe-block-60bc0944511e9ccbc10d { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-60bc0944511e9ccbc10d { } } @media screen and (max-width: 767px) { #block-60bc0944511e9ccbc10d .sqs-html-content { } } @media screen and (max-width: 767px) { }
+**2026 Summer Session**
+
+**Hosted at the** [**University of Dallas**](https://udallas.edu/)**  
+World Schools Debate: July 12 to July 25  
+Extemporaneous Speaking: July 13 to July 19  
+Public Speaking & Interp Events: July 18 to July 25**  
+
+#block-8fe131eb2e77ce3f139c { --stroke-style: none;--stroke-thickness: 6px; } #block-8fe131eb2e77ce3f139c .sqs-html-content { --tweak-text-block-padding: 6% 6% 6% 6%; --tweak-text-block-padding: initial; } .fe-block-8fe131eb2e77ce3f139c { mix-blend-mode: var(--tweak-text-block-blend ); border-radius: var(--tweak-text-block-radius); } .fe-block-8fe131eb2e77ce3f139c { --tweak-text-block-radius: 0px 0px 0px 0px; } .fe-block-8fe131eb2e77ce3f139c { --tweak-text-block-blend : normal; } .fe-block-8fe131eb2e77ce3f139c { --blur-value: blur(15px);} @media screen and (max-width: 767px) { #block-8fe131eb2e77ce3f139c { } } @media screen and (max-width: 767px) { #block-8fe131eb2e77ce3f139c .sqs-html-content { } } @media screen and (max-width: 767px) { }
