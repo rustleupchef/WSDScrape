@@ -9,6 +9,13 @@ node script.js
 ```
 and the code will generate all the markdown files into the output/ directory.
 
+And, if you want to test that the token count of the files generated isn't far too high then run these commands
+```bash
+cd overload
+python3 main.py
+```
+This will return the total token counts of all the files in the output section. If you believe this is too high add a limit to the total videos.
+
 To generate the INSTRUCTIONS.md file
 
  - Enter all the files seen in the output folder into the a new projects folder
