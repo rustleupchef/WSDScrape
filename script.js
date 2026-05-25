@@ -46,13 +46,13 @@ async function grabWOWIAnalysis() {
     console.log('🎉 Scraping task completed!');
 }
 
-async function scrapeDebateTranscripts() {
+async function scrapeDebateTranscripts(MAX_VIDEOS) {
     const SEARCH_QUERY = 'World Schools Debating Championship WSDC finals';
 
     console.log(`🔍 Searching YouTube for: "${SEARCH_QUERY}"...`);
 
     const searchResults = await yts(SEARCH_QUERY);
-    const videos = searchResults.videos;
+    const videos = searchResults.videos.splice(0, MAX_VIDEOS);
 
     if (videos.length === 0) {
         console.log('No videos found.');
@@ -88,8 +88,14 @@ async function scrapeDebateTranscripts() {
 }
 
 async function main() {
+    const args = process.argv.slice(2);
+    let MAX_VIDEOS = 20;
+    if (args.length > 0) {
+        MAX_VIDEOS = parseInt(args[0]);
+    }
+
     await grabWOWIAnalysis();
-    await scrapeDebateTranscripts();
+    await scrapeDebateTranscripts(MAX_VIDEOS);
 }
 
 main();
