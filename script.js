@@ -29,13 +29,13 @@ async function grabWOWIAnalysis() {
         const pageResponse = await fetch(baseUrl + link);
         const pageHtml = await pageResponse.text();
 
-        const dom = new JSDOM(html).window.document;
+        const dom = new JSDOM(pageHtml).window.document;
         let content = "";
 
         const textBoxes = dom.querySelectorAll(".sqs-text-block-container");
         for (let i = 0; i < textBoxes.length; i++) {
-            const html = textBoxes[i].innerHTML;
-            const markdown = turndownservice.turndown(html);
+            const boxHtml = textBoxes[i].innerHTML;
+            const markdown = turndownservice.turndown(boxHtml);
             content += markdown + "\n";
         }
         
