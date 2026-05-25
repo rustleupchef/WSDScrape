@@ -48,12 +48,11 @@ async function grabWOWIAnalysis() {
 
 async function scrapeDebateTranscripts() {
     const SEARCH_QUERY = 'World Schools Debating Championship WSDC finals';
-    const MAX_VIDEOS = 20;
 
     console.log(`🔍 Searching YouTube for: "${SEARCH_QUERY}"...`);
 
     const searchResults = await yts(SEARCH_QUERY);
-    const videos = searchResults.videos.slice(0, MAX_VIDEOS);
+    const videos = searchResults.videos;
 
     if (videos.length === 0) {
         console.log('No videos found.');
