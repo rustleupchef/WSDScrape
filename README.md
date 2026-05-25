@@ -15,7 +15,9 @@ To generate the INSTRUCTIONS.md file
  - Enter the prompt below the list into claude
  - Copy the output of the data into the project instructions set.
 
-```Based of all the debate rounds and motion analysis given, generate a instruction set for a claude project that takes all of it into account, so that the project is good at generating debate cases, topic analysis, and path to ballots.```
+```
+Based of all the debate rounds and motion analysis given, generate a instruction set for a claude project that takes all of it into account, so that the project is good at generating debate cases, topic analysis, and path to ballots.
+```
 
 # Files
 
