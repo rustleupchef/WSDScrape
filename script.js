@@ -69,7 +69,7 @@ async function grabWOWIAnalysis() {
 
 		content = removeCSSBlocks(content);
 
-		const filePath = path.join("output", "load", `${crypto.randomUUID()}.md`);
+		const filePath = path.join("output", "load", `${link.split("/")[2]}-${crypto.randomUUID()}.md`);
 		await writeFile(filePath, content, "utf8");
 		console.log(`✅ Saved content to: ${filePath}\n`);
 	}
