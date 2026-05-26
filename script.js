@@ -212,7 +212,6 @@ async function getQuestions(motion) {
 		return questions;
 	}
 
-	// LLM mode — keep regenerating until the user approves
 	const query = "Generate one question for the proposition and opposition to ask google for a world-schools debate about the motion";
 	while (true) {
 		console.log('\n🤖 Generating questions with Mistral...');
@@ -246,7 +245,6 @@ async function getQuestions(motion) {
 			edited.forEach((q, i) => console.log(`   ${i + 1}. ${q}`));
 			return edited;
 		}
-		// 'n' — loop and regenerate
 		console.log('\n🔄 Regenerating...');
 	}
 }
