@@ -79,7 +79,8 @@ def main(arguments = []):
     upper, lower = upper - lower, 0
 
     while True:
-        middle = (upper + lower)//2
+        middle = (upper + lower + .5)//2
+        lower, upper, middle = int(lower), int(upper), int(middle)
         print(f"{lower=}\t{upper=}\t{middle=}")
 
         scrape(parent_dir, middle)
@@ -94,6 +95,10 @@ def main(arguments = []):
                 print("✅ Test 3 passed")
                 break
             lower = middle
+            
+            if upper - lower <= 1:
+                print(f"❌ Test 3 failed: target diff unreachable | {diff=}\ttarget={.95}")
+                break
         else:
             print("<=")
             upper = middle
