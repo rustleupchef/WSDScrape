@@ -179,7 +179,7 @@ async function searchDuckDuckGo(query) {
 	}
 }
 
-async function webSearch(motion) {
+async function webSearch(motion, MAX_RESULTS) {
 	const query = "Generate one question for the proposition and opposition to ask google for a world-schools debate about the motion";
 	const response = (await generateQuestions(`${query}:${motion}`, "mistral"));
 	const questions = response
@@ -191,6 +191,7 @@ async function webSearch(motion) {
 	for (const question of questions) {
 		const searchResults = await searchDuckDuckGo(question);
 		
+		let counter = 0;
 		for (const result of searchResults) {
 			console.log(result);
 			try {
@@ -199,20 +200,24 @@ async function webSearch(motion) {
 				let markdown = removeCSSBlocks(await turndownservice.turndown(html)).trim();
 				
 				const prefix = 'window.parent.location.replace("';
-				if (!markdown.startsWith(prefix)) {
-					throw new Error("Is not a accesible page");
-				}
+				if (!markdown.startsWith(prefix))
+					throw new Error("Is not a accessible page");
 
+				
 				const link = markdown.slice(prefix.length, -3);
 				console.log(`🔗 Processing: ${link}`);
-
+				
 				response = await fetch(link);
 				html = await response.text();
 				markdown = removeCSSBlocks(await turndownservice.turndown(html));
-
+				
 				const filePath = path.join("output", `${crypto.randomUUID()}.md`);
 				await writeFile(filePath, markdown, "utf-8");
 				console.log(`✅ Saved content to: ${filePath}\n`);
+				
+				counter++;
+				if (counter >= MAX_RESULTS) 
+					break;
 				
 			} catch (error) {
 				console.log(`❌ Couldn't download file because ${error}`);
@@ -231,10 +236,7 @@ async function main() {
 	const mode = args[0];
 
 	if (mode === "load") {
-		let MAX_VIDEOS = 20;
-		if (args.length > 1) {
-			MAX_VIDEOS = parseInt(args[1]);
-		}
+		let MAX_VIDEOS = args.length > 1 ? parseInt(args[1]) : 20;
 
 		await grabWOWIAnalysis();
 		await scrapeDebateTranscripts(MAX_VIDEOS);
@@ -243,9 +245,12 @@ async function main() {
 	if (mode === "search") {
 		if (args.length <= 1) {
 			console.error("You must enter in the motion entry");
+			return;
 		}
 
-		await webSearch(args.splice(1).join(" "));
+		let MAX_RESULTS = args.length > 2 ? parseInt(args[2]) : 10;
+
+		await webSearch(args[1], MAX_RESULTS);
 	}
 }
 
