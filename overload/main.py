@@ -43,7 +43,9 @@ def count_tokens_in_directory(directory_path, model="gpt-4o"):
 
 def main(arguments = []):
     parent_dir = os.path.dirname(os.getcwd())
-    output_dir = os.path.join(parent_dir, "output")
+    output_dir = os.path.join(parent_dir, "output", "load")
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
 
     print(f"gpt_count, estimate : {count_tokens_in_directory(output_dir)}")
     
