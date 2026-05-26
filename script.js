@@ -67,7 +67,7 @@ async function grabWOWIAnalysis() {
 
 		content = removeCSSBlocks(content);
 
-		const filePath = "output/" + crypto.randomUUID() + ".md";
+		const filePath = path.join("output", "load", `${crypto.randomUUID()}.md`);
 		await writeFile(filePath, content, "utf8");
 		console.log(`✅ Saved content to: ${filePath}\n`);
 	}
@@ -102,7 +102,7 @@ async function scrapeDebateTranscripts(MAX_VIDEOS) {
 				.replace(/&#39;/g, "'")
 				.replace(/&quot;/g, '"');
 
-			const filePath = path.join("output/", `${crypto.randomUUID()}.md`);
+			const filePath = path.join("output", "load", `${crypto.randomUUID()}.md`);
 
 			await writeFile(filePath, fullText, 'utf-8');
 			console.log(`✅ Saved transcript to: ${filePath}\n`);
@@ -211,7 +211,7 @@ async function webSearch(motion, MAX_RESULTS) {
 				html = await response.text();
 				markdown = removeCSSBlocks(await turndownservice.turndown(html));
 				
-				const filePath = path.join("output", `${crypto.randomUUID()}.md`);
+				const filePath = path.join("output", "search", `${crypto.randomUUID()}.md`);
 				await writeFile(filePath, markdown, "utf-8");
 				console.log(`✅ Saved content to: ${filePath}\n`);
 
@@ -238,6 +238,7 @@ async function main() {
 	const mode = args[0];
 
 	if (mode === "load") {
+		await mkdir(path.join(process.cwd(), "output", mode), { recursive: true });
 		let MAX_VIDEOS = args.length > 1 ? parseInt(args[1]) : 20;
 
 		await grabWOWIAnalysis();
@@ -245,11 +246,11 @@ async function main() {
 	}
 
 	if (mode === "search") {
+		await mkdir(path.join(process.cwd(), "output", mode), { recursive: true });
 		if (args.length <= 1) {
 			console.error("You must enter in the motion entry");
 			return;
 		}
-
 		let MAX_RESULTS = args.length > 2 ? parseInt(args[2]) : 10;
 
 		await webSearch(args[1], MAX_RESULTS);
