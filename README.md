@@ -87,9 +87,11 @@ The most powerful prompts tend to **specify the side, the level of competition, 
 # Files
 
 output/
- - WOWI motion analysis
- - Videos of debate motions
- - Web search page results
+  load/
+    - WOWI motion analysis
+    - Videos of debate motions
+  search/
+    - Web search page results
 
 INSTRUCTIONS.md
  - This file contains all of the instructions to ensure that Claude or any other LLM will be able to correctly perform debate related activities
