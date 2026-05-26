@@ -1,6 +1,6 @@
 import { JSDOM } from "jsdom";
 import TurndownService from "turndown";
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 import { YoutubeTranscript } from "youtube-transcript";
 import yts from "yt-search";
 import path from "path";
@@ -214,7 +214,7 @@ async function webSearch(motion, MAX_RESULTS) {
 				const filePath = path.join("output", `${crypto.randomUUID()}.md`);
 				await writeFile(filePath, markdown, "utf-8");
 				console.log(`✅ Saved content to: ${filePath}\n`);
-				
+
 				counter++;
 				if (counter >= MAX_RESULTS) 
 					break;
@@ -232,6 +232,8 @@ async function main() {
 		console.error("Not enough arguments");
 		return;
 	}
+
+	await mkdir(path.join(process.cwd(), "output"), { recursive: true });
 
 	const mode = args[0];
 
