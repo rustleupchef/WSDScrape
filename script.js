@@ -276,7 +276,7 @@ async function webSearch(motion, MAX_RESULTS) {
 				html = await response.text();
 				markdown = removeCSSBlocks(await turndownservice.turndown(html));
 
-				const filePath = path.join("output", "search", `${crypto.randomUUID()}.md`);
+				const filePath = path.join("output", "search", `${new URL(link).hostname}-${crypto.randomUUID()}.md`);
 				await writeFile(filePath, markdown, "utf-8");
 				console.log(`✅ Saved content to: ${filePath}\n`);
 
