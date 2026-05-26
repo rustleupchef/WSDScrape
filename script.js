@@ -104,7 +104,7 @@ async function scrapeDebateTranscripts(MAX_VIDEOS) {
 				.replace(/&#39;/g, "'")
 				.replace(/&quot;/g, '"');
 
-			const filePath = path.join("output", "load", `${crypto.randomUUID()}.md`);
+			const filePath = path.join("output", "load", `${video.title}-${crypto.randomUUID()}.md`);
 
 			await writeFile(filePath, fullText, 'utf-8');
 			console.log(`✅ Saved transcript to: ${filePath}\n`);
