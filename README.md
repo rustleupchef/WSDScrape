@@ -5,14 +5,18 @@ This is a collection of a bunch of debate motion analysis and world-schools roun
 
 Simply run
 ```bash
-node script.js
+# max_videos is technically optional
+# including the option will simply limit the number of videos in the output feed
+node script.js <MAX_VIDEOS>
 ```
 and the code will generate all the markdown files into the output/ directory.
 
 And, if you want to test that the token count of the files generated isn't far too high then run these commands
 ```bash
 cd overload
-python3 main.py
+# max tokens is technically optional
+# including the option will iterate via binary search through video counts till it finds a count of videos that matches your desired amoung of tokens
+python3 main.py <MAX_TOKENS>
 ```
 This will return the total token counts of all the files in the output section. If you believe this is too high add a limit to the total videos.
 For context, a unpaid claude conversation can handle roughly 200,000 to 500,000 tokens.
