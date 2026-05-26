@@ -4,6 +4,8 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { YoutubeTranscript } from "youtube-transcript";
 import yts from "yt-search";
 import path from "path";
+import readline from "node:readline";
+
 
 const turndownservice = new TurndownService();
 
@@ -179,18 +181,83 @@ async function searchDuckDuckGo(query) {
 	}
 }
 
-async function webSearch(motion, MAX_RESULTS) {
+function promptUser(question) {
+	const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+	return new Promise(resolve => rl.question(question, answer => {
+		rl.close();
+		resolve(answer.trim());
+	}));
+}
+
+async function getQuestions(motion) {
+	const modeAnswer = await promptUser(
+		'\n❓ How would you like to generate search questions?\n' +
+		'   [1] Enter questions manually\n' +
+		'   [2] Generate with LLM (Mistral)\n' +
+		'Choice: '
+	);
+
+	if (modeAnswer === '1') {
+		console.log('\n📝 Enter your questions one per line. Type an empty line when done:');
+		const questions = [];
+		while (true) {
+			const line = await promptUser('  > ');
+			if (line === '') break;
+			questions.push(cleanQuestion(line));
+		}
+		if (questions.length === 0) {
+			console.error('❌ No questions entered. Aborting.');
+			process.exit(1);
+		}
+		return questions;
+	}
+
+	// LLM mode — keep regenerating until the user approves
 	const query = "Generate one question for the proposition and opposition to ask google for a world-schools debate about the motion";
-	const response = (await generateQuestions(`${query}:${motion}`, "mistral"));
-	const questions = response
-		.split("\n")
-		.filter(line => line.trim() !== '')
-		.map(line => cleanQuestion(line));
-	console.log(questions);
+	while (true) {
+		console.log('\n🤖 Generating questions with Mistral...');
+		const response = await generateQuestions(`${query}: ${motion}`, "mistral");
+		const questions = response
+			.split("\n")
+			.filter(line => line.trim() !== '')
+			.map(line => cleanQuestion(line));
+
+		console.log('\n📋 Generated questions:');
+		questions.forEach((q, i) => console.log(`   ${i + 1}. ${q}`));
+
+		const approval = await promptUser(
+			'\n✅ Use these questions?\n' +
+			'   [y] Yes, proceed\n' +
+			'   [n] No, regenerate\n' +
+			'   [e] Edit manually before proceeding\n' +
+			'Choice: '
+		);
+
+		if (approval.toLowerCase() === 'y') {
+			return questions;
+		} else if (approval.toLowerCase() === 'e') {
+			console.log('\n✏️  Edit each question (press Enter to keep as-is):');
+			const edited = [];
+			for (const q of questions) {
+				const newQ = await promptUser(`  [${q}]\n  New text (or Enter to keep): `);
+				edited.push(cleanQuestion(newQ !== '' ? newQ : q));
+			}
+			console.log('\n📋 Final questions:');
+			edited.forEach((q, i) => console.log(`   ${i + 1}. ${q}`));
+			return edited;
+		}
+		// 'n' — loop and regenerate
+		console.log('\n🔄 Regenerating...');
+	}
+}
+
+async function webSearch(motion, MAX_RESULTS) {
+	const questions = await getQuestions(motion);
+	console.log('\n🔎 Proceeding with questions:', questions);
 
 	for (const question of questions) {
 		const searchResults = await searchDuckDuckGo(question);
-		
+
 		let counter = 0;
 		for (const result of searchResults) {
 			console.log(result);
@@ -198,33 +265,34 @@ async function webSearch(motion, MAX_RESULTS) {
 				let response = await fetch(`https:${result}`);
 				let html = await response.text();
 				let markdown = removeCSSBlocks(await turndownservice.turndown(html)).trim();
-				
+
 				const prefix = 'window.parent.location.replace("';
 				if (!markdown.startsWith(prefix))
 					throw new Error("Is not a accessible page");
 
-				
+
 				const link = markdown.slice(prefix.length, -3);
 				console.log(`🔗 Processing: ${link}`);
-				
+
 				response = await fetch(link);
 				html = await response.text();
 				markdown = removeCSSBlocks(await turndownservice.turndown(html));
-				
+
 				const filePath = path.join("output", "search", `${crypto.randomUUID()}.md`);
 				await writeFile(filePath, markdown, "utf-8");
 				console.log(`✅ Saved content to: ${filePath}\n`);
 
 				counter++;
-				if (counter >= MAX_RESULTS) 
+				if (counter >= MAX_RESULTS)
 					break;
-				
+
 			} catch (error) {
 				console.log(`❌ Couldn't download file because ${error}`);
 			}
 		}
 	}
 }
+
 
 async function main() {
 	const args = process.argv.slice(2);
