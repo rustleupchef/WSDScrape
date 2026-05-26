@@ -101,13 +101,23 @@ async function scrapeDebateTranscripts(MAX_VIDEOS) {
 
 async function main() {
     const args = process.argv.slice(2);
-    let MAX_VIDEOS = 20;
-    if (args.length > 0) {
-        MAX_VIDEOS = parseInt(args[0]);
+    if (args.length <= 0) {
+        console.error("Not enough arguments");
+        return;
     }
 
-    await grabWOWIAnalysis();
-    await scrapeDebateTranscripts(MAX_VIDEOS);
+    const mode = args[0];
+
+    if (mode === "load") {
+        let MAX_VIDEOS = 20;
+        if (args.length > 1) {
+            MAX_VIDEOS = parseInt(args[1]);
+        }
+
+        await grabWOWIAnalysis();
+        await scrapeDebateTranscripts(MAX_VIDEOS);
+    }
+
 }
 
 main();

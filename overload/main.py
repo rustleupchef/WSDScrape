@@ -4,7 +4,7 @@ import subprocess
 import tiktoken
 
 def scrape(directory_path, count):
-    subprocess.run(["node", "script.js", str(count)], cwd=directory_path, stdout=subprocess.DEVNULL, stdin=subprocess.DEVNULL)
+    subprocess.run(["node", "script.js", "load", str(count)], cwd=directory_path, stdout=subprocess.DEVNULL, stdin=subprocess.DEVNULL)
 
 def is_greater(desired: int, counted: tuple):
         return desired > counted[0] and desired > counted[-1]
