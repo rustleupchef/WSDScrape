@@ -47,42 +47,34 @@ To generate the INSTRUCTIONS.md file
 Based of all the debate rounds and motion analysis given, generate a instruction set for a claude project that takes all of it into account, so that the project is good at generating debate cases, topic analysis, and path to ballots.
 ```
 
-Here are some prompts and tips to start with once you are done setting up:
+Once you are done delete all the files from the project and begin working on a Notebook in NotebookLM
 
----
+Steps:
+ - Plug in all the files from the node application
+ - Add in any files you find nessecary
+ - Ask the Notebook to do a Quick Search based of this motion (Deep Search if you have it)
+ - Plug in the file 00_CONSTRUCTING_TOPIC_ANALYSIS.md
 
-## 🗳️ Path to Ballot
+After all of this has been done, you can generate the topic analysis with this prompt
+```
+You are a research analyst preparing a raw briefing for an elite World Schools Debate coach. 
 
-- *"Give me a path to ballot for [Prop/Opp] on the motion: [motion]. The key clashes in the round were [X], [Y], and [Z]."*
-- *"I just ran a round on THW restrict free speech to combat right-wing populism and went Prop. We won the democratic backsliding argument but lost on chilling effects. Build me a path to ballot."*
-- *"Assume a standard round on THBT affirmative action is counterproductive to equality. Give me the Opp path to ballot assuming Prop ran tokenization and workplace pipelines."*
+Your task is to synthesize the uploaded documents and video transcripts to create a comprehensive topic analysis for the motion: "[INSERT MOTION HERE]".
 
----
+CRITICAL INSTRUCTIONS:
+1. Base your output layout strictly on the headings and sub-components found in `00_MASTER_WSD_TEMPLATE.md`. Do not omit any sections.
+2. For every argument generated, you must extract a distinct Thesis, Principle layer, Mechanism, Warrant, Impact, and Comparative from the sources. If the sources lack a mechanism, use logical deduction based on the author's/speaker's core intent to fill the causal chain, but flag that you have done so.
+3. Filter out all irrelevant noise: ignore arguments from the sources that belong to other motions or unrelated contexts.
+4. If the motion type is [THW/THB/THR/Actor], ensure the framing section strictly reflects the specific burdens of that motion type as outlined in the template.
+```
 
-## 📋 Full Case Generation
+Once it generate the motion analysis, shift over to your favorite AI, and give it the INSTRUCTIONS.md file you gave it
 
-- *"Generate a full Prop case for [motion], including framing, model, 3 arguments with mechanism and impact, POIs to offer, and a reply speech outline."*
-- *"Build me an Opp case for THBT housing is a guaranteed right. Assume Prop will run a positive rights model with government provision."*
-- *"Give me both sides' cases for [motion] so I can compare the strongest ground for each."*
+To generate the case:
+  - Prompt it to generate a path to ballot based of the topic analysis given for whatever side
+  - Prompt it to generate a case based of the topic analysis and path to ballot give for whatever side
 
----
-
-## 🔍 Topic Analysis
-
-- *"Give me a full topic analysis for [motion], including key definitional battles, the clash landscape, strongest ground for each side, and common pitfalls."*
-- *"I have [motion] coming up as an impromptu round. Quick topic analysis — what are the 3 biggest clashes and which side has stronger ground?"*
-- *"What are the most likely prop and opp framings for [motion] at a championship-level tournament?"*
-
----
-
-## 🎯 Bonus: Targeted Coaching Prompts
-
-- *"My Second Prop speech on [motion] kept losing the [X] clash. What's the best mechanization strategy for rebuilding that argument?"*
-- *"Write me a reply speech outline for Opp on [motion] assuming we won on [clash] but dropped [argument]."*
-
----
-
-The most powerful prompts tend to **specify the side, the level of competition, and any clashes or arguments already in play** — the more context you give, the sharper the output.
+Now you just plug the case that it generated into a format that you like.
 
 # Files
 
