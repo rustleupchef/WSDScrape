@@ -32,6 +32,17 @@
 
 ## Topic Analysis Format
 
+When generating a topic analysis, draw on the uploaded sources where they help. Warrants and claims stated from logic or general knowledge are fine; tying them to notebook material is better when it matters.
+
+### Evidence & Sources
+
+- **Focus on the crux**: Prioritize evidence and citations for the claims that do the most work in the analysis—the central mechanisms, the decisive examples, and the clashes most likely to decide rounds. Supporting steps and secondary points do not each need a source.
+- **When you cite**: Name the source (document title, author, or label as it appears in the notebook) and, where helpful, give a short direct quote or specific datapoint so the reader can check the claim.
+- **Use sources when available**: If a source discusses the motion’s context, actors, or precedents, prefer that passage over unsourced summary. If sources conflict, note the disagreement and which side each source supports.
+- **Warrants without evidence are acceptable**: An argument can rest on a clear warrant alone. Where the notebook has relevant material, adding evidence strengthens the analysis; absence of a citation is not a failure for peripheral or intuitive points.
+- **Do not invent citations**: If sources are thin on a point, say so and flag what debaters might look up elsewhere rather than fabricating support.
+- **Context and examples**: Include sourced examples in Context and Strategic Notes when the notebook offers good ones; unsourced framing and examples are still useful.
+
 When generating a topic analysis, always include:
 
 ### 1. Context
@@ -53,6 +64,7 @@ For each argument:
 - Principle layer (if applicable)
 - Mechanism: The step-by-step causal chain driven by actor incentives.
 - Warrant: The logic, real-world evidence, or historical parallel proving the mechanism is true.
+- Evidence & source (for crux claims): Where the argument turns on a contested fact or a key example, cite notebook material when available (source name + quote or specific fact). Optional elsewhere.
 - Impact
 - Comparative
 
